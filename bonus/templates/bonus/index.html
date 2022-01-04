@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h3 style="margin-top: 50px;"> MENU </h3>
+<h3 style="margin-top: 50px;"> 商品展示 </h3>
 
 <div class="row" id="winner_list">
     {% for pid, winners in winnerList_dict.items %}
@@ -14,10 +14,17 @@
                 {% with 'images/'|add:pid|add:'.jpg' as image_static %}
                     <img src={% static image_static %} class="img-fluid">
                 {% endwith %}
+               
+                
+              
             </div>
 
             <div class="winner-list container">
-                <p> {{ prizeCName_dict | get_value_from_dict:pid}} </p>
+                {% for prize in prize_list %}
+                    {{pid.get_url}}
+                {% endfor %}
+                <!-- <p> {{pid}}</p> -->
+                <!-- <p><a href="{{ prize.get_url }}"> {{ prizeCName_dict | get_value_from_dict:pid}}</a> </p> -->
                 <!-- {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %} -->
             </div>
         </div>

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bonus.apps.BonusConfig',
     'register.apps.RegisterConfig',
+    'feedback.apps.FeedbackConfig',
 ]
 
 MIDDLEWARE = [

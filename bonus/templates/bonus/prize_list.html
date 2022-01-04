@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% block  content %}
-    <h3>全品項</h3>
-    {% if prize_list %}
-      <ul>
-        {% for prize in prize_list %}
-        <li>
-          <a href="{{ prize.get_url }}"> {{ prize.pid }}</a> ({{prize.cname}})
-        </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>There are no prize.</p>    
-    {% endif %}       
+    <h3>MENU</h3>
+    <div class="flex">
+      <div class="detail">
+        {% if prize_list %}
+          {% for prize in prize_list %}
+            <img src="{{ prize.img.url}}" width='200px' alt="logo">
+            {{prize.cname}}
+            <a href="{{ prize.get_url }}"> {{ prize.pid }}</a> 
+            <br/>
+          {% endfor %}
+        {% else %}
+          <p>There are no prize.</p>    
+        {% endif %}     
+      </div>  
+    </div>  
 {% endblock %}
