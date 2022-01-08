@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% load dict_tag %} {% block content %}
+
+<h3 style="margin: 50px 0px 20px 30px;"> MENU</h3>
+
+<style>
+    .bread_name {
+        text-align: center;
+    }
+
+    .name_div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .bi {
+        margin-left: auto;
+        margin-right: 0;
+        padding-right: 1em;
+        color: black;
+    }
+</style>
+
+
+<div class="row" id="winner_list">
+    {% for pid, winners in winnerList_dict.items %}
+    <div class='col-6 col-sm-4 col-md-3'>
+        <div class="logo div card" style="width:18rem;height:350px;overflow: hidden;">
+            {% load static %} {% with 'images/'|add:pid|add:'.jpg' as image_static %}
+            <img src={% static image_static %} class="img-fluid" style="height: 300px;object-fit: contain;">
+            {% endwith %}
+            {% for prize in prize_list %} {{pid.get_url}} {% endfor %}
+
+            <div class="name_div">
+
+                <p class="bread_name" style="display:inline-block;"> {{ prizeCName_dict | get_value_from_dict:pid}}
+
+                </p>
+                <i id="{{pid}}" class="bi bi-heart" style="display:inline-block;"></i>
+            </div>
+
+            <!-- {% for i in Prizes%}
+            <div class="detail" style="margin-left: 4px;margin-right: 4px;">{{i}} </div>
+            {% endfor %} -->
+        </div>
+
+        <div class="winner-list container">
+            {% for prize in prize_list %} {{pid.get_url}} {% endfor %}
+            <!-- <p> {{pid}}</p> -->
+            <!-- <p><a href="{{ prize.get_url }}"> {{ prizeCName_dict | get_value_from_dict:pid}}</a> </p> -->
+            <!-- {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %} -->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<script>
+    let hearts = document.querySelectorAll('.bi');
+    let ajax=new XMLHttpRequest()
+    for (let i = 0; i < hearts.length; i++) {
+        hearts[i].style.color = 'black';
+        hearts[i].addEventListener('click', function () { toggleHeart(i) })
+        // hearts[i].addEventListener('mouseout',function(){toggleHeart(i)})
+    }
+    function toggleHeart(i) {
+        hearts[i].classList.toggle('bi-heart');
+        hearts[i].classList.toggle('bi-heart-fill');
+        if (hearts[i].style.color === 'black') {
+            hearts[i].style.color = 'red';
+            // send like
+            ajax.open("GET","heart/?like="+hearts[i].id,true)
+            ajax.send()
+        } else {
+            hearts[i].style.color = 'black';
+            // send dislike
+            ajax.open("GET","heart/?dislike="+hearts[i].id,true)
+            ajax.send()
+        }
+    }
+
+</script>
+{% endblock %}

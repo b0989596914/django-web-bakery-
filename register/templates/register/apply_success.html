@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>綁定成功</p>
+
+<ul>
+   <li> {{form.name.label}}: {{form.name.value}}
+   <li> {{form.tel.label}}: {{form.tel.value}}
+   <li> {{form.email.label}}: {{form.email.value}}
+   <li> {{form.data.label}}: {{form.data.value}}
+   <li> {{form.time.label}}: {{form.time.value}}
+   <li> {{form.way_id.label}}: {{form.way_id.value}} 
+</ul>   
+
+{% endblock %}
