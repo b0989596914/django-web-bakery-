@@ -21,7 +21,7 @@
 </style>
 
 
-<div class="row" id="winner_list">
+<div class="row" id="winner_list" style="background-image: url(https://thumb.photo-ac.com/15/157aa95d5d29f2f14e8820bf7e4aaa23_t.jpeg);">
     {% for pid, winners in winnerList_dict.items %}
     <div class='col-6 col-sm-4 col-md-3'>
         <div class="logo div card" style="width:18rem;height:350px;overflow: hidden;background-image: url(https://thumb.photo-ac.com/15/157aa95d5d29f2f14e8820bf7e4aaa23_t.jpeg);">
@@ -29,7 +29,7 @@
             <img src={% static image_static %} class="img-fluid" style="height: 300px;object-fit: contain;"> {% endwith %} {% for prize in prize_list %} {{pid.get_url}} {% endfor %}
 
             <div class="name_div">
-                <br>
+
                 <p class="bread_name" style="display:inline-block;"> {{ prizeCName_dict | get_value_from_dict:pid}}
 
                 </p>
