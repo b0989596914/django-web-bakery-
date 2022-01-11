@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<h3 style="margin: 50px 0px 20px 30px;"> Favorite Product</h3>
+
+<style>
+    .bi {
+        padding-left: 2em;
+    }
+</style>
+
+
+{% for r in recomment_list %}
+<p class="bi">{{r}}</p>
+{% endfor %} {% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+
+<h3 style="margin: 50px 0px 30px 30px;"> Booking</h3>
+<form action="" method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <input class="btn btn-success" type="submit" value="提交" />
+
+</form>
+<br> {% endblock %}
