@@ -2,11 +2,19 @@
 
 <h3 style="margin: 50px 0px 30px 0px;"> 商品展示</h3>
 
-<div class='detail '>
-    <div class="container row-md-5 col-md-2" style="display:table-row-group">{% if prize_list %} {% for prize in prize_list %}
-        <img src="{{ prize.img.url}} " width="300px ">
-        <a href="{{ prize.get_url}} " style="color:black;font-size: 20px;">
-            {{prize.cname}}</a> {% endfor %} {% else %}
+<div class='row-3'>
+    <div class="detail">{% if prize_list %} {% for prize in prize_list %}
+
+        <img src="{{ prize.img.url}} " width="300px" style=" float:left ">
+        <!-- <a href="{{ prize.get_url}} " style="color:black;font-size: 20px; ">
+            {{prize.cname}}
+            </a> -->
+        <div style="float:right ;width: 400px;">
+            <h4>{{prize.cname}} </h4>
+            <br/>
+            <p>NT.{{prize.amount}}</p>
+            <p>{{prize.desc}} </p><br><br><br><br><br><br><br><br><br>
+        </div> {% endfor %} {% else %}
     </div>
 </div>
 <p>There are no prize.</p>
