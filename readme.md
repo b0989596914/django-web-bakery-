@@ -1,9 +1,5 @@
-# The VH5000 Example
+# django web programming
 
-這份教材是透過五倍劵及加碼劵來學習 django web programming。
-
-In the **dj05 demo**, we will show how to use **Form**
-
-Please focus on **register** app
+將老師提供的教材，改為可以使用於bakery的網頁以及資料庫。
 
 http://127.0.0.1:8000/apply to see the demo
